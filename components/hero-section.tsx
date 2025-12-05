@@ -18,7 +18,7 @@ export function HeroSection() {
           </div>
 
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal leading-tight text-balance">
-            Expert Bookkeeping for Your Business
+            Finger Lakes Ledgers
           </h1>
 
           <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed max-w-2xl mx-auto text-pretty">

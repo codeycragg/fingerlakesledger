@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Mail, Phone } from "lucide-react"
+import { Phone } from "lucide-react"
 import { ContactFormModal } from "./contact-form-modal"
 
 export function CTASection() {
@@ -23,12 +23,8 @@ export function CTASection() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <div className="flex justify-center pt-4">
               <Button size="lg" className="group" onClick={() => setIsModalOpen(true)}>
-                <Mail className="mr-2 h-5 w-5" />
-                Contact Us
-              </Button>
-              <Button size="lg" variant="outline" className="group bg-transparent" onClick={() => setIsModalOpen(true)}>
                 <Phone className="mr-2 h-5 w-5" />
                 Schedule a Call
               </Button>
