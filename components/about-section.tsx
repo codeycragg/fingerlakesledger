@@ -15,10 +15,13 @@ export function AboutSection() {
               <div className="md:col-span-2 flex items-start justify-center">
                 <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden ring-4 ring-primary/10">
                   <Image
-                    src="/professional-headshot-of-cody-cragg.jpg"
-                    alt="Cody Cragg - Founder"
+                    src="/codey-cragg-headshot.jpeg"
+                    alt="Codey Cragg - Founder"
                     fill
-                    className="object-cover"
+                    className="object-cover scale-125"
+                    style={{
+                      objectPosition: "50% 35%",
+                    }}
                     priority
                   />
                 </div>
@@ -26,7 +29,7 @@ export function AboutSection() {
 
               <div className="md:col-span-3 space-y-4">
                 <div className="space-y-2">
-                  <h3 className="text-2xl md:text-3xl font-serif text-foreground">Cody Cragg</h3>
+                  <h3 className="text-2xl md:text-3xl font-serif text-foreground">Codey Cragg</h3>
                   <p className="text-muted-foreground text-sm">Founder & Principal Bookkeeper</p>
                 </div>
 

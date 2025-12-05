@@ -22,8 +22,7 @@ export function HeroSection() {
           </h1>
 
           <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed max-w-2xl mx-auto text-pretty">
-            Professional financial management and bookkeeping services tailored to help your business thrive in the
-            Finger Lakes region.
+            Expert bookkeeping that keeps your business tax-ready and financially organized.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
