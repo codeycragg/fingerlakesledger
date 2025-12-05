@@ -37,14 +37,13 @@ export function AboutSection() {
 
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    With years of experience in financial management and a deep commitment to accuracy, I provide
-                    personalized bookkeeping services that help businesses stay organized and compliant.
+                    With years of experience in bookkeeping and financial management, I specialize in helping landlords
+                    and small businesses stay organized, tax-ready, and compliant.
                   </p>
 
                   <p>
-                    My approach combines traditional bookkeeping expertise with modern technology, ensuring your
-                    financial records are always up-to-date and accessible. Whether you're a small business owner or an
-                    established enterprise, I'm here to simplify your financial processes.
+                    I work seamlessly within your QuickBooks Online account, providing hands-on bookkeeping, monthly
+                    reconciliations, and financial insights that keep you prepared for tax time.
                   </p>
 
                   <p>
