@@ -1,18 +1,25 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import Link from "next/link"
 import { ChevronDown } from "lucide-react"
 
 export function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const closeTimerRef = useRef<NodeJS.Timeout | null>(null)
 
   const handleMouseEnter = (menu: string) => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current)
+      closeTimerRef.current = null
+    }
     setOpenDropdown(menu)
   }
 
   const handleMouseLeave = () => {
-    setOpenDropdown(null)
+    closeTimerRef.current = setTimeout(() => {
+      setOpenDropdown(null)
+    }, 200)
   }
 
   return (
@@ -46,13 +53,13 @@ export function Header() {
               <div className="absolute left-0 top-full mt-1 w-48 bg-background border rounded-md shadow-lg">
                 <Link
                   href="/about#about"
-                  className="block px-4 py-2 text-sm text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
+                  className="block px-4 py-3 text-sm text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
                 >
                   Our Story
                 </Link>
                 <Link
                   href="/about#certifications"
-                  className="block px-4 py-2 text-sm text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
+                  className="block px-4 py-3 text-sm text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
                 >
                   Certifications
                 </Link>
@@ -73,25 +80,25 @@ export function Header() {
               <div className="absolute left-0 top-full mt-1 w-56 bg-background border rounded-md shadow-lg">
                 <Link
                   href="/services"
-                  className="block px-4 py-2 text-sm text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
+                  className="block px-4 py-3 text-sm text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
                 >
                   Monthly Bookkeeping
                 </Link>
                 <Link
                   href="/services"
-                  className="block px-4 py-2 text-sm text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
+                  className="block px-4 py-3 text-sm text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
                 >
                   Rental Property Management
                 </Link>
                 <Link
                   href="/services"
-                  className="block px-4 py-2 text-sm text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
+                  className="block px-4 py-3 text-sm text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
                 >
                   Tax Preparation Support
                 </Link>
                 <Link
                   href="/services"
-                  className="block px-4 py-2 text-sm text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
+                  className="block px-4 py-3 text-sm text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
                 >
                   Catch-Up Services
                 </Link>
