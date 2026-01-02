@@ -10,7 +10,7 @@ export function CTASection() {
 
   return (
     <>
-      <section className="py-20 md:py-28 bg-background">
+      <section id="contact" className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <div className="space-y-4">

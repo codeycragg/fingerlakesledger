@@ -22,7 +22,7 @@ export function NewsletterSection() {
   }
 
   return (
-    <section className="py-20 px-4 bg-muted/30">
+    <section id="newsletter" className="py-20 px-4 bg-muted/30">
       <div className="container max-width mx-auto">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="font-serif text-3xl md:text-4xl mb-4 text-balance">Free Monthly Tax Tips for Landlords</h2>
