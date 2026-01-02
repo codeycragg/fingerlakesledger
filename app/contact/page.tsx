@@ -20,14 +20,14 @@ export default function ContactPage() {
             <div className="space-y-6 text-center">
               <div>
                 <h3 className="font-semibold text-lg mb-2">Email</h3>
-                <a href="mailto:contact@fingerlakesledgers.com" className="text-primary hover:underline">
-                  contact@fingerlakesledgers.com
+                <a href="mailto:contact@fingerlakesledger.com" className="text-primary hover:underline">
+                  contact@fingerlakesledger.com
                 </a>
               </div>
               <div>
                 <h3 className="font-semibold text-lg mb-2">Phone</h3>
-                <a href="tel:+15551234567" className="text-primary hover:underline">
-                  (555) 123-4567
+                <a href="tel:+15853696208" className="text-primary hover:underline">
+                  (585) 369-6208
                 </a>
               </div>
               <div>
