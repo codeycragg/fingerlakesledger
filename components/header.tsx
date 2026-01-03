@@ -2,10 +2,12 @@
 
 import { useState, useRef } from "react"
 import Link from "next/link"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, Menu, X } from "lucide-react"
 
 export function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null)
   const closeTimerRef = useRef<NodeJS.Timeout | null>(null)
 
   const handleMouseEnter = (menu: string) => {
@@ -22,11 +24,20 @@ export function Header() {
     }, 200)
   }
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen)
+    setMobileDropdownOpen(null)
+  }
+
+  const toggleMobileDropdown = (menu: string) => {
+    setMobileDropdownOpen(mobileDropdownOpen === menu ? null : menu)
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2" onClick={() => setMobileMenuOpen(false)}>
           <span className="text-xl font-serif font-bold text-primary">Finger Lakes Ledger</span>
         </Link>
 
@@ -142,12 +153,133 @@ export function Header() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden p-2">
-          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <button className="md:hidden p-2" onClick={toggleMobileMenu} aria-label="Toggle menu">
+          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
+
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t bg-background">
+          <nav className="container mx-auto px-4 py-4 space-y-2">
+            <Link
+              href="/"
+              className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent rounded-md transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
+
+            {/* About Dropdown */}
+            <div>
+              <button
+                onClick={() => toggleMobileDropdown("about")}
+                className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent rounded-md transition-colors"
+              >
+                About Us
+                <ChevronDown
+                  className={`ml-1 h-4 w-4 transition-transform ${mobileDropdownOpen === "about" ? "rotate-180" : ""}`}
+                />
+              </button>
+              {mobileDropdownOpen === "about" && (
+                <div className="pl-4 mt-1 space-y-1">
+                  <Link
+                    href="/about#about"
+                    className="block px-4 py-2 text-sm text-foreground/80 hover:bg-accent hover:text-foreground rounded-md transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Our Story
+                  </Link>
+                  <Link
+                    href="/about#certifications"
+                    className="block px-4 py-2 text-sm text-foreground/80 hover:bg-accent hover:text-foreground rounded-md transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Certifications
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Services Dropdown */}
+            <div>
+              <button
+                onClick={() => toggleMobileDropdown("services")}
+                className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent rounded-md transition-colors"
+              >
+                Services
+                <ChevronDown
+                  className={`ml-1 h-4 w-4 transition-transform ${mobileDropdownOpen === "services" ? "rotate-180" : ""}`}
+                />
+              </button>
+              {mobileDropdownOpen === "services" && (
+                <div className="pl-4 mt-1 space-y-1">
+                  <Link
+                    href="/services"
+                    className="block px-4 py-2 text-sm text-foreground/80 hover:bg-accent hover:text-foreground rounded-md transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Monthly Bookkeeping
+                  </Link>
+                  <Link
+                    href="/services"
+                    className="block px-4 py-2 text-sm text-foreground/80 hover:bg-accent hover:text-foreground rounded-md transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Rental Property Management
+                  </Link>
+                  <Link
+                    href="/services"
+                    className="block px-4 py-2 text-sm text-foreground/80 hover:bg-accent hover:text-foreground rounded-md transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Tax Preparation Support
+                  </Link>
+                  <Link
+                    href="/services"
+                    className="block px-4 py-2 text-sm text-foreground/80 hover:bg-accent hover:text-foreground rounded-md transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Catch-Up Services
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/pricing"
+              className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent rounded-md transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Pricing
+            </Link>
+
+            <Link
+              href="/blog"
+              className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent rounded-md transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Blog & Resources
+            </Link>
+
+            <Link
+              href="/contact"
+              className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent rounded-md transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Contact
+            </Link>
+
+            {/* Mobile CTA */}
+            <Link
+              href="/contact"
+              className="block mt-4 px-6 py-2 bg-primary text-primary-foreground font-medium text-sm rounded-md hover:bg-primary/90 transition-colors text-center"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Schedule a Call
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   )
 }
