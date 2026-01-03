@@ -27,7 +27,7 @@ export function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-serif font-bold text-primary">Finger Lakes Ledgers</span>
+          <span className="text-xl font-serif font-bold text-primary">Finger Lakes Ledger</span>
         </Link>
 
         {/* Navigation */}

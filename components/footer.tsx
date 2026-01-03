@@ -8,7 +8,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="font-serif text-2xl text-background mb-4">Finger Lakes Ledgers</h3>
+            <h3 className="font-serif text-2xl text-background mb-4">Finger Lakes Ledger</h3>
             <p className="text-background/70 leading-relaxed">
               Expert bookkeeping that keeps your business tax-ready and financially organized.
             </p>
@@ -67,7 +67,7 @@ export function Footer() {
 
         <div className="border-t border-background/20 pt-8">
           <p className="text-center text-background/60 text-sm">
-            © {new Date().getFullYear()} Finger Lakes Ledgers. All rights reserved.
+            © {new Date().getFullYear()} Finger Lakes Ledger. All rights reserved.
           </p>
         </div>
       </div>

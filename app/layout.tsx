@@ -4,7 +4,7 @@ import { Inter, DM_Serif_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-// <CHANGE> Updated fonts for professional bookkeeping aesthetic - Inter for body and DM Serif Display for elegant headings
+// Updated fonts for professional bookkeeping aesthetic - Inter for body and DM Serif Display for elegant headings
 const inter = Inter({ subsets: ["latin"] })
 const dmSerif = DM_Serif_Display({
   weight: ["400"],
@@ -13,7 +13,7 @@ const dmSerif = DM_Serif_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Finger Lakes Ledgers - Professional Bookkeeping Services",
+  title: "Finger Lakes Ledger - Professional Bookkeeping Services",
   description:
     "Expert bookkeeping services for the Finger Lakes region. QuickBooks certified and Microsoft Excel specialist.",
   generator: "v0.app",
