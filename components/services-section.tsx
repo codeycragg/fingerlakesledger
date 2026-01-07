@@ -56,7 +56,7 @@ export function ServicesSection() {
   ]
 
   return (
-    <section id="services" className="py-20 px-4 bg-background">
+    <section id="services" className="py-20 px-4 bg-muted/20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
@@ -113,7 +113,7 @@ export function ServicesSection() {
           ))}
         </div>
 
-        <div className="bg-muted/50 border border-border rounded-xl p-8 md:p-12 text-center">
+        <div className="bg-muted border border-border rounded-xl p-8 md:p-12 text-center">
           <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-4">Need Something Different?</h3>
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
             Every business is unique. Let's build a custom bookkeeping solution that fits your specific needs and

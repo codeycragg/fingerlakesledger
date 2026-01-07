@@ -3,14 +3,19 @@ import { Card } from "@/components/ui/card"
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 md:py-28 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="about" className="py-20 md:py-28 relative overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Image src="/finger-lakes-vineyard.jpg" alt="Finger Lakes Vineyard" fill className="object-cover" priority />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-center mb-16 text-foreground">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-center mb-16 text-white">
             Who We Are
           </h2>
 
-          <Card className="overflow-hidden border-border/50 shadow-lg">
+          <Card className="overflow-hidden border-border/40 shadow-xl bg-white">
             <div className="grid md:grid-cols-5 gap-8 p-8 md:p-10">
               <div className="md:col-span-2 flex items-start justify-center">
                 <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden ring-4 ring-primary/10">

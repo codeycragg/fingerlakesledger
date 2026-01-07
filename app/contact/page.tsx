@@ -10,11 +10,11 @@ export default function ContactPage() {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <div className="bg-accent text-white py-20">
+        <div className="bg-accent/30 text-foreground py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Let's Talk About Your Books</h1>
-              <p className="text-lg md:text-xl text-white/90 text-pretty">
+              <p className="text-lg md:text-xl text-muted-foreground text-pretty">
                 Questions about bookkeeping or ready to get started? Reach out today.
               </p>
             </div>

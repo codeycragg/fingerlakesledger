@@ -8,8 +8,10 @@ export default function AboutPage() {
     <>
       <Header />
       <main className="min-h-screen">
-        <div className="container mx-auto px-4 py-16">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-center mb-12">About Finger Lakes Ledger</h1>
+        <div className="bg-accent/30 text-foreground py-20">
+          <div className="container mx-auto px-4">
+            <h1 className="text-4xl md:text-5xl font-serif font-bold text-center mb-4">About Finger Lakes Ledger</h1>
+          </div>
         </div>
         <AboutSection />
         <CertificationsSection />

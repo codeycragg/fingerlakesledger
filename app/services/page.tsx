@@ -1,6 +1,5 @@
 import { Header } from "@/components/header"
 import { ServicesSection } from "@/components/services-section"
-import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 
 export default function ServicesPage() {
@@ -20,7 +19,6 @@ export default function ServicesPage() {
           </div>
         </div>
         <ServicesSection />
-        <CTASection />
       </main>
       <Footer />
     </>
