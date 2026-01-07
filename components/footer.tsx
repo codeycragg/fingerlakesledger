@@ -52,8 +52,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/pricing" className="text-background/70 hover:text-accent transition-colors">
-                  Pricing
+                <a href="/blog" className="text-background/70 hover:text-accent transition-colors">
+                  Blog & Resources
                 </a>
               </li>
               <li>
