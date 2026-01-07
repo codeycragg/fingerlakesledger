@@ -1,8 +1,8 @@
 "use client"
 
 import type React from "react"
-
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { createPortal } from "react-dom"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -14,6 +14,7 @@ interface ContactFormModalProps {
 }
 
 export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
+  const [mounted, setMounted] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,7 +26,22 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState("")
 
-  if (!isOpen) return null
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
+    }
+    return () => {
+      document.body.style.overflow = "unset"
+    }
+  }, [isOpen])
+
+  if (!isOpen || !mounted) return null
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -47,7 +63,6 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
 
       setIsSubmitted(true)
 
-      // Reset after 3 seconds
       setTimeout(() => {
         setIsSubmitted(false)
         setFormData({ name: "", email: "", phone: "", message: "", contactPreference: "email" })
@@ -70,10 +85,13 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
 
   const isPhoneRequired = formData.contactPreference === "phone" || formData.contactPreference === "text"
 
-  return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={onClose}>
+  const modalContent = (
+    <div
+      className="fixed inset-0 bg-black/50 flex items-start md:items-center justify-center z-[100] p-4 overflow-y-auto"
+      onClick={onClose}
+    >
       <div
-        className="bg-background border border-border rounded-lg shadow-lg max-w-md w-full max-h-[90vh] overflow-y-auto p-6 relative"
+        className="bg-background border border-border rounded-lg shadow-lg max-w-md w-full my-8 p-6 relative"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -214,4 +232,6 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
       </div>
     </div>
   )
+
+  return createPortal(modalContent, document.body)
 }
