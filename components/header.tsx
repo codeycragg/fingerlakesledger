@@ -3,11 +3,13 @@
 import { useState, useRef } from "react"
 import Link from "next/link"
 import { ChevronDown, Menu, X } from "lucide-react"
+import { ContactFormModal } from "@/components/contact-form-modal"
 
 export function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const closeTimerRef = useRef<NodeJS.Timeout | null>(null)
 
   const handleMouseEnter = (menu: string) => {
@@ -254,16 +256,20 @@ export function Header() {
             </Link>
 
             {/* Mobile CTA */}
-            <Link
-              href="/contact"
-              className="block mt-4 px-6 py-2 bg-primary text-primary-foreground font-medium text-sm rounded-md hover:bg-primary/90 transition-colors text-center"
-              onClick={() => setMobileMenuOpen(false)}
+            <button
+              onClick={() => {
+                setIsModalOpen(true)
+                setMobileMenuOpen(false)
+              }}
+              className="block w-full mt-4 px-6 py-3 bg-primary text-primary-foreground font-medium text-sm rounded-md hover:bg-primary/90 transition-colors text-center"
             >
               Schedule a Call
-            </Link>
+            </button>
           </nav>
         </div>
       )}
+
+      <ContactFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </header>
   )
 }

@@ -18,25 +18,25 @@ export function CTASection({
     <>
       <section id="contact" className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
+          <div className="max-w-3xl mx-auto text-center space-y-6 md:space-y-8">
             <div className="space-y-4">
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-foreground text-balance">
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-foreground text-balance px-4 md:px-0">
                 {headline}
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto text-pretty">
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto text-pretty px-4 md:px-0">
                 {description}
               </p>
             </div>
 
-            <div className="flex justify-center pt-4">
-              <Button size="lg" className="group" onClick={() => setIsModalOpen(true)}>
+            <div className="flex justify-center pt-4 px-4 md:px-0">
+              <Button size="lg" className="group min-h-[48px] text-base" onClick={() => setIsModalOpen(true)}>
                 <Phone className="mr-2 h-5 w-5" />
                 Schedule a Call
               </Button>
             </div>
 
             <div className="pt-8 border-t border-border/50">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground px-4 md:px-0">
                 Serving businesses throughout the Finger Lakes region with integrity and expertise
               </p>
             </div>
