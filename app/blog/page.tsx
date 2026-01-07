@@ -10,7 +10,7 @@ export default function BlogPage() {
         <div className="container mx-auto px-4 py-16">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-center mb-4">Blog & Resources</h1>
           <p className="text-lg text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Tax tips, bookkeeping insights, and financial resources for landlords and small businesses
+            Tax tips, bookkeeping insights, and financial resources for small businesses
           </p>
         </div>
         <NewsletterSection />
