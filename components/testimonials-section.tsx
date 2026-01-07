@@ -15,8 +15,8 @@ export function TestimonialsSection() {
       name: "James",
       business: "Small Business Owner",
       quote:
-        "Codey is thorough and professional. Response time was a bit slower during tax season, but the quality of work is excellent. Would definitely recommend.",
-      rating: 4,
+        "Codey is thorough and professional. The quality of work is excellent, and they saved me thousands in fees. Would definitely recommend.",
+      rating: 4.5,
     },
     {
       name: "Emily",
@@ -41,9 +41,25 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
               <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                ))}
+                {[...Array(5)].map((_, i) => {
+                  const isFilled = i < Math.floor(testimonial.rating)
+                  const isHalf = i === Math.floor(testimonial.rating) && testimonial.rating % 1 !== 0
+                  return (
+                    <div key={i} className="relative">
+                      {isHalf ? (
+                        <>
+                          <Star className="w-5 h-5 text-primary" />
+                          <Star
+                            className="w-5 h-5 fill-primary text-primary absolute top-0 left-0"
+                            style={{ clipPath: "inset(0 50% 0 0)" }}
+                          />
+                        </>
+                      ) : (
+                        <Star className={`w-5 h-5 ${isFilled ? "fill-primary" : ""} text-primary`} />
+                      )}
+                    </div>
+                  )
+                })}
               </div>
               <p className="text-foreground text-lg leading-relaxed mb-6 italic">"{testimonial.quote}"</p>
               <div className="border-t border-border pt-4">

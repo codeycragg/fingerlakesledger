@@ -1,65 +1,28 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
-import Link from 'next/link'
+import { Header } from "@/components/header"
+import { NewsletterSection } from "@/components/newsletter-section"
+import { Footer } from "@/components/footer"
 
-type Post = {
-  slug: string
-  title: string
-  date: string
-  description?: string
-}
-
-async function getPosts(): Promise<Post[]> {
-  const postsDirectory = path.join(process.cwd(), 'posts')
-  const filenames = fs.readdirSync(postsDirectory).filter(file => file.endsWith('.mdx'))
-
-  const posts = filenames.map(filename => {
-    const filePath = path.join(postsDirectory, filename)
-    const fileContents = fs.readFileSync(filePath, 'utf8')
-    const { data } = matter(fileContents)
-
-    return {
-      slug: filename.replace('.mdx', ''),
-      title: data.title,
-      date: data.date,
-      description: data.description,
-    }
-  })
-
-  return posts.sort((a, b) => (b.date > a.date ? 1 : -1))
-}
-
-export default async function Blog() {
-  const posts = await getPosts()
-
+export default function BlogPage() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="text-4xl font-bold mb-8">Blog & Tax Tips</h1>
-      <p className="text-lg mb-12">
-        Practical advice for landlords and small businesses in the Finger Lakes region.
-      </p>
-
-      {posts.length === 0 ? (
-        <p>No posts yet — check back soon!</p>
-      ) : (
-        <div className="space-y-12">
-          {posts.map(post => (
-            <article key={post.slug} className="border-b pb-8">
-              <time className="text-sm text-gray-600">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-              <h2 className="text-2xl font-bold mt-2">
-                <Link href={`/blog/${post.slug}`} className="hover:text-blue-600">
-                  {post.title}
-                </Link>
-              </h2>
-              {post.description && <p className="mt-3 text-lg">{post.description}</p>}
-              <Link href={`/blog/${post.slug}`} className="text-blue-600 hover:underline mt-4 inline-block">
-                Read more →
-              </Link>
-            </article>
-          ))}
+    <>
+      <Header />
+      <main className="min-h-screen">
+        <div className="container mx-auto px-4 py-16">
+          <h1 className="text-4xl md:text-5xl font-serif font-bold text-center mb-4">Blog & Resources</h1>
+          <p className="text-lg text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Tax tips, bookkeeping insights, and financial resources for landlords and small businesses
+          </p>
         </div>
-      )}
-    </main>
+        <NewsletterSection />
+
+        <div className="container mx-auto px-4 py-16">
+          <div className="text-center text-muted-foreground">
+            <p className="text-lg mb-4">Blog posts coming soon!</p>
+            <p>Subscribe to our newsletter to get notified when we publish new content.</p>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
   )
 }

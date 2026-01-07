@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card"
-import { CheckCircle2, Clock } from "lucide-react"
+import { CheckCircle2 } from "lucide-react"
 
 export function CertificationsSection() {
   const certifications = [
@@ -14,8 +14,8 @@ export function CertificationsSection() {
       name: "QuickBooks ProAdvisor",
       description: "Advanced QuickBooks Certification",
       logo: "/quickbooks-proadvisor-badge.jpg",
-      completed: false,
-      credlyUrl: undefined, // In progress, no link yet
+      completed: true,
+      credlyUrl: "https://www.credly.com/badges/d029e8f5-bf39-49c7-ae23-19fcf41f7286/public_url",
     },
     {
       name: "QuickBooks Certified User Online",
@@ -52,12 +52,6 @@ export function CertificationsSection() {
                     cert.credlyUrl ? "hover:shadow-lg cursor-pointer" : ""
                   }`}
                 >
-                  {!cert.completed && (
-                    <div className="absolute top-3 right-3 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 text-xs font-medium">
-                      <Clock className="h-3 w-3" />
-                      In Progress
-                    </div>
-                  )}
                   <div className="flex flex-col items-center text-center space-y-4">
                     <div className="relative w-full h-20 flex items-center justify-center">
                       <img

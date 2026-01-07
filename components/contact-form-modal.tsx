@@ -68,7 +68,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
           <X className="h-5 w-5" />
         </button>
 
-        <h3 className="font-serif text-2xl mb-2 text-foreground">Get in Touch</h3>
+        <h3 className="font-serif text-2xl mb-2 text-foreground">Get Started Today</h3>
         <p className="text-sm text-muted-foreground mb-6">
           Fill out the form below and I'll get back to you within 24 hours.
         </p>
@@ -86,7 +86,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-1.5">
+              <label htmlFor="name" className="block text-sm font-medium mb-1.5 text-gray-900">
                 Name *
               </label>
               <Input
@@ -101,7 +101,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-1.5">
+              <label htmlFor="email" className="block text-sm font-medium mb-1.5 text-gray-900">
                 Email *
               </label>
               <Input
@@ -116,7 +116,7 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium mb-1.5">
+              <label htmlFor="phone" className="block text-sm font-medium mb-1.5 text-gray-900">
                 Phone Number {isPhoneRequired && "*"}
               </label>
               <Input
@@ -131,46 +131,46 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Preferred Contact Method *</label>
-              <div className="space-y-2">
-                <label className="flex items-center gap-2 cursor-pointer">
+              <label className="block text-sm font-medium mb-2 text-gray-900">Preferred Contact Method *</label>
+              <div className="space-y-2.5">
+                <label className="flex items-center gap-3 cursor-pointer">
                   <input
                     type="radio"
                     name="contactPreference"
                     value="email"
                     checked={formData.contactPreference === "email"}
                     onChange={handleChange}
-                    className="w-4 h-4 text-primary border-border focus:ring-primary"
+                    className="w-4 h-4 text-primary border-border focus:ring-primary accent-primary"
                   />
-                  <span className="text-sm">Email</span>
+                  <span className="text-sm text-gray-900">Email</span>
                 </label>
-                <label className="flex items-center gap-2 cursor-pointer">
+                <label className="flex items-center gap-3 cursor-pointer">
                   <input
                     type="radio"
                     name="contactPreference"
                     value="phone"
                     checked={formData.contactPreference === "phone"}
                     onChange={handleChange}
-                    className="w-4 h-4 text-primary border-border focus:ring-primary"
+                    className="w-4 h-4 text-primary border-border focus:ring-primary accent-primary"
                   />
-                  <span className="text-sm">Phone Call</span>
+                  <span className="text-sm text-gray-900">Phone Call</span>
                 </label>
-                <label className="flex items-center gap-2 cursor-pointer">
+                <label className="flex items-center gap-3 cursor-pointer">
                   <input
                     type="radio"
                     name="contactPreference"
                     value="text"
                     checked={formData.contactPreference === "text"}
                     onChange={handleChange}
-                    className="w-4 h-4 text-primary border-border focus:ring-primary"
+                    className="w-4 h-4 text-primary border-border focus:ring-primary accent-primary"
                   />
-                  <span className="text-sm">Text Message</span>
+                  <span className="text-sm text-gray-900">Text Message</span>
                 </label>
               </div>
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-1.5">
+              <label htmlFor="message" className="block text-sm font-medium mb-1.5 text-gray-900">
                 Message *
               </label>
               <Textarea

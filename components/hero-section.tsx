@@ -1,7 +1,13 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import { ContactFormModal } from "@/components/contact-form-modal"
+import { useState } from "react"
 
 export function HeroSection() {
+  const [isContactOpen, setIsContactOpen] = useState(false)
+
   return (
     <section className="relative bg-primary text-primary-foreground py-24 md:py-32 lg:py-40 overflow-hidden">
       {/* Subtle decorative element */}
@@ -26,20 +32,15 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button size="lg" variant="secondary" className="group">
+            <Button size="lg" variant="secondary" className="group" onClick={() => setIsContactOpen(true)}>
               Get Started Today
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="bg-transparent border-primary-foreground/30 hover:bg-primary-foreground/10 text-primary-foreground hover:text-primary-foreground"
-            >
-              Learn More
             </Button>
           </div>
         </div>
       </div>
+
+      <ContactFormModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </section>
   )
 }
