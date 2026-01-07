@@ -117,14 +117,6 @@ export function Header() {
             )}
           </div>
 
-          {/* Pricing */}
-          <Link
-            href="/pricing"
-            className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent rounded-md transition-colors"
-          >
-            Pricing
-          </Link>
-
           {/* Blog & Resources */}
           <Link
             href="/blog"
@@ -244,14 +236,6 @@ export function Header() {
                 </div>
               )}
             </div>
-
-            <Link
-              href="/pricing"
-              className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent rounded-md transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Pricing
-            </Link>
 
             <Link
               href="/blog"
