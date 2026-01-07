@@ -9,17 +9,22 @@ export function HeroSection() {
   const [isContactOpen, setIsContactOpen] = useState(false)
 
   return (
-    <section className="relative bg-primary text-primary-foreground py-24 md:py-32 lg:py-40 overflow-hidden">
+    <section className="relative text-white py-24 md:py-32 lg:py-40 overflow-hidden">
+      <div className="absolute inset-0">
+        <img src="/finger-lakes-landscape.webp" alt="Finger Lakes landscape" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+
       {/* Subtle decorative element */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 right-10 w-64 h-64 bg-primary-foreground rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-primary-foreground rounded-full blur-3xl" />
+        <div className="absolute top-10 right-10 w-64 h-64 bg-white rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-white rounded-full blur-3xl" />
       </div>
 
       <div className="container relative mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 text-sm">
-            <span className="w-2 h-2 rounded-full bg-primary-foreground animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm">
+            <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
             Serving the Finger Lakes Region
           </div>
 
@@ -27,7 +32,7 @@ export function HeroSection() {
             Finger Lakes Ledger
           </h1>
 
-          <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed max-w-2xl mx-auto text-pretty">
+          <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto text-pretty">
             Expert bookkeeping that keeps your business tax-ready and financially organized.
           </p>
 

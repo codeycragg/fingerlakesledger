@@ -5,7 +5,13 @@ import { Button } from "@/components/ui/button"
 import { Phone } from "lucide-react"
 import { ContactFormModal } from "./contact-form-modal"
 
-export function CTASection() {
+export function CTASection({
+  headline = "Take Bookkeeping Off Your Plate",
+  description = "Get back to growing your business while I handle the numbers with accuracy and care. Schedule your free consultation today.",
+}: {
+  headline?: string
+  description?: string
+} = {}) {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
@@ -15,11 +21,10 @@ export function CTASection() {
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <div className="space-y-4">
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-foreground text-balance">
-                Ready to Streamline Your Finances?
+                {headline}
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto text-pretty">
-                Let's discuss how professional bookkeeping services can help your business grow. Schedule a free
-                consultation today.
+                {description}
               </p>
             </div>
 
