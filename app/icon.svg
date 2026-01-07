@@ -1,4 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" fill="#f7f6f4" rx="4"/>
-  <text x="16" y="23" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#3d6b52" text-anchor="middle">FLL</text>
+  <!-- Stacked F, L, L vertically instead of horizontally -->
+  <text x="16" y="11" font-family="Georgia, serif" font-size="9" font-weight="700" fill="#3d6b52" text-anchor="middle">F</text>
+  <text x="16" y="20" font-family="Georgia, serif" font-size="9" font-weight="700" fill="#3d6b52" text-anchor="middle">L</text>
+  <text x="16" y="29" font-family="Georgia, serif" font-size="9" font-weight="700" fill="#3d6b52" text-anchor="middle">L</text>
 </svg>
