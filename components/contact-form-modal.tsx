@@ -23,26 +23,42 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState("")
 
   if (!isOpen) return null
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError("")
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
 
-    console.log("Form submitted:", formData)
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+      if (!response.ok) {
+        throw new Error("Failed to send message")
+      }
 
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: "", email: "", phone: "", message: "", contactPreference: "email" })
-      onClose()
-    }, 3000)
+      setIsSubmitted(true)
+
+      // Reset after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setFormData({ name: "", email: "", phone: "", message: "", contactPreference: "email" })
+        onClose()
+      }, 3000)
+    } catch (err) {
+      console.error("Form submission error:", err)
+      setError("Failed to send message. Please try emailing directly at contact@fingerlakesledger.com")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -85,6 +101,12 @@ export function ContactFormModal({ isOpen, onClose }: ContactFormModalProps) {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
+            {error && (
+              <div className="p-3 bg-red-50 border border-red-200 rounded-md">
+                <p className="text-sm text-red-600">{error}</p>
+              </div>
+            )}
+
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-1.5 text-gray-900">
                 Name *
